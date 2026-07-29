@@ -26,3 +26,19 @@ I checked the issue scope and estimated effort of two to three hours, which is r
 **Setup confirmation:** App runs locally at localhost:5173
 
 **Cohort ledger:** Issue added to cohort ledger
+
+---
+
+## Week 8 — Reproduction & solution planning
+
+**Reproduction commit link:** [42baabc](https://github.com/ascherj/pathreview/commit/42baabcb02244b357f149dfab9430496cdb55896)
+
+**Reproduction summary:**
+I opened `docs/API.md` and confirmed that the `POST /profiles` and `POST /reviews` entries each contain only a single descriptive line with no request body schema, field list, or example. I then inspected `api/routes/profiles.py`, `api/routes/reviews.py`, `api/schemas/profile.py`, and `api/schemas/review.py` to identify the actual accepted fields and types. The gap is concrete: a developer reading the docs has no way to construct a valid request for either endpoint without reading the source code.
+
+**PLAN.md link:** [PLAN.md](PLAN.md)
+
+**Walkthrough video (recommended):** [to be added]
+
+**Blockers or open questions:**
+`POST /profiles` uses `multipart/form-data` rather than a JSON body because it accepts a file upload. I need to confirm the best Markdown format for documenting a multipart form request (field table vs. code block) so the docs stay consistent with the existing style in `docs/API.md`.
