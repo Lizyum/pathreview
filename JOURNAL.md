@@ -73,3 +73,42 @@ Added request body schemas for `POST /profiles` and `POST /reviews` to `docs/API
 **Self-review confirmation:** [ ] make check passes  [x] make test-unit passes (53 pre-existing failures unrelated to this change; 6 new tests pass)
 
 **Draft PR feedback received from:** None
+
+---
+
+## Week 10 — Iteration & reflection
+
+### Reviewer feedback
+
+**Feedback received:** [ ] Yes  [x] No — still awaiting review
+
+**Summary of feedback:**
+No review has come in.
+
+**How you responded:** N/A
+
+---
+
+### Reflection
+
+**What was harder than you expected?**
+I was surprised by how distributed the relevant information was across the codebase. Although the issue itself requested a documentation update to a single file, resolving it accurately required tracing the documented endpoints back through their routes and request schemas to understand their actual behavior. In particular, discovering that POST /profiles accepts multipart/form-data rather than a JSON body reinforced that I could not make assumptions based solely on the existing API documentation. The final change was relatively small, but the investigation required to make that change confidently was more involved than I expected.
+
+**What did you learn about working in a large codebase?**
+I learned that contributing to an unfamiliar codebase requires spending more time understanding existing decisions before making your own. In my own projects, I usually already know where functionality lives and why it was implemented a certain way. Here, I had to trace relationships between the documentation, routes, and request schemas before I could confidently determine what needed to change. I also learned how useful AI tools can be for navigating this process. Claude helped me locate relevant source code and understand how different parts of the repository were connected, which saved time during the issue discovery and reproduction phase without replacing the need for me to verify its findings against the codebase.
+
+**How did AI tools help — and where did they fall short?**
+AI was most useful for helping me gather my bearings in an unfamiliar codebase and for turning what I discovered into a structured execution plan. It helped me identify files worth investigating, understand relationships between different parts of the repository, and organize the steps needed to complete the issue.
+
+At the same time, I frequently had to intervene when the agent missed relevant context or suggested intermediate steps that did not align with the established plan. This reinforced that effective AI collaboration still requires active judgment from the user. I found that the collaboration was most productive when I remained inquisitive about unexpected output, verified suggestions against the source code, and treated the plan as something I was responsible for maintaining rather than something the agent could execute unquestioned. AI helped accelerate my reasoning, but I still needed to provide the context and oversight that kept the work grounded in responsible development.
+
+**What would you do differently if you started over?**
+For my first open-source contribution, I would not change much about the issue I selected or the process I followed. Choosing a relatively contained documentation issue gave me room to focus on skills beyond implementation, such as navigating an unfamiliar repository, reproducing an issue, planning a solution, validating my changes, and preparing a contribution for review.
+
+For my next contribution, however, I would like to choose a slightly more involved issue. Now that I have gone through the full contribution cycle once, I want to challenge the skills I established here and see how my approach to investigation, planning, AI collaboration, and implementation needs to evolve as the scope and complexity of an issue increase.
+
+
+**What are you most proud of from this module?**
+I am most proud of strengthening the muscle of AI + human collaboration in a way that I can see myself replicating in future open-source contributions and unfamiliar codebases. Rather than relying on AI simply to produce an answer or implementation, I became more intentional about using it to navigate, investigate, and plan while keeping myself responsible for validating its output and directing the overall process.
+
+More broadly, completing this contribution cycle proved to me that I can enter an unfamiliar codebase, identify what I need to understand, and iteratively build enough context to make a meaningful contribution. That process is something I feel much more confident carrying into larger and more complex contributions in the future.
