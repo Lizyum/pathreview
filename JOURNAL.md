@@ -38,7 +38,38 @@ I opened `docs/API.md` and confirmed that the `POST /profiles` and `POST /review
 
 **PLAN.md link:** [PLAN.md](PLAN.md)
 
-**Walkthrough video (recommended):** [to be added]
-
 **Blockers or open questions:**
 `POST /profiles` uses `multipart/form-data` rather than a JSON body because it accepts a file upload. I need to confirm the best Markdown format for documenting a multipart form request (field table vs. code block) so the docs stay consistent with the existing style in `docs/API.md`.
+
+---
+
+## Week 9 — Solution building & PR submission
+
+### Check-in 1 (mid-week)
+
+**Current progress:**
+The file API.md has been updated with the reqest body schemas of POST /profile and POST /review endpoints. I also created unit tests to verify the presence of these documentation changes. 
+
+**Next steps:**
+I will work on putting out a PR for these changes and closing the issue.
+
+**Blockers:**
+N/A
+
+---
+
+### Check-in 2 (end of week)
+
+**PR link:** [[link to your submitted pull request](https://github.com/ascherj/pathreview/pull/1004)]
+
+**Branch:** docs/89-add-api-request-schemas
+
+**What you built:**
+Added request body schemas for `POST /profiles` and `POST /reviews` to `docs/API.md`. Each entry now documents the content type, a field table with name, type, required/optional status, and constraints, and an example `curl` request. `POST /profiles` uses `multipart/form-data` with three optional fields (`github_username`, `portfolio_url`, `resume_file`); `POST /reviews` uses `application/json` with one required field (`profile_id`, UUID).
+
+**Tests added or updated:**
+`tests/unit/test_api_docs.py` — new file with 6 unit tests that assert each documented content type and field name is present in `docs/API.md`. Tests use `@pytest.mark.unit` and run as part of `make test-unit`.
+
+**Self-review confirmation:** [ ] make check passes  [x] make test-unit passes (53 pre-existing failures unrelated to this change; 6 new tests pass)
+
+**Draft PR feedback received from:** None
